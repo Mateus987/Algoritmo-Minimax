@@ -1,14 +1,14 @@
-// Definição dos jogadores
+
 const JOGADOR_X = 'X';
 const JOGADOR_O = 'O';
 
-// Definição do tabuleiro do jogo
+
 const tabuleiro = ['', '', '', '', '', '', '', '', ''];
 
-// Função para calcular a pontuação de um estado do jogo
+
 
 function pontuacaoDoEstado(estado) {
-// Verificar se houve um vencedor
+
 const combinacoesVencedoras = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // linhas
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // colunas
@@ -22,21 +22,21 @@ for (const combinacao of combinacoesVencedoras) {
     }
 }
 
-// Verificar se é empate
+// Verifica se é empate
 if (!estado.includes('')) {
     return 0;
 }
 
-// O jogo ainda está em andamento
+// O jogo ainda em andamento
 return null;
 }
 
-// Função para verificar se o jogo terminou
+//
 function jogoTerminou(estado) {
 return pontuacaoDoEstado(estado) !== null || !estado.includes('');
 }
 
-// Função para realizar a busca em árvore usando o algoritmo Minimax com poda alfa-beta
+
 function minimaxAlphaBeta(estado, profundidade, alpha, beta, jogadorMaximizador) {
 if (jogoTerminou(estado) || profundidade === 0) {
     return pontuacaoDoEstado(estado);
@@ -53,7 +53,7 @@ if (jogadorMaximizador) {
         melhorPontuacao = Math.max(melhorPontuacao, pontuacao);
         alpha = Math.max(alpha, pontuacao);
         if (beta <= alpha) {
-        break; // Poda beta
+        break; 
         }
     }
     }
@@ -70,7 +70,7 @@ if (jogadorMaximizador) {
         melhorPontuacao = Math.min(melhorPontuacao, pontuacao);
         beta = Math.min(beta, pontuacao);
         if (beta <= alpha) {
-        break; // Poda alfa
+        break;
         }
     }
     }
@@ -79,7 +79,7 @@ if (jogadorMaximizador) {
 }
 }
 
-// Função para encontrar o melhor movimento usando o algoritmo Minimax com poda alfa-beta
+
 function encontrarMelhorMovimento() {
 let melhorPontuacao = -Infinity;
 let melhorMovimento;
@@ -99,7 +99,7 @@ for (let i = 0; i < tabuleiro.length; i++) {
 return melhorMovimento;
 }
 
-// Função para fazer um movimento no tabuleiro
+
 function makeMove(index) {
 if (!jogoTerminou(tabuleiro) && tabuleiro[index] === '') {
 tabuleiro[index] = JOGADOR_O;
@@ -120,7 +120,7 @@ if (jogoTerminou(tabuleiro)) {
 }
 }
 
-// Função para atualizar o tabuleiro no HTML
+// Função que atualiza o tabuleiro
 function atualizarTabuleiro() {
 const cells = document.getElementsByClassName('cell');
 for (let i = 0; i < tabuleiro.length; i++) {
@@ -128,7 +128,7 @@ cells[i].textContent = tabuleiro[i];
 }
 }
 
-// Função para reiniciar o jogo
+// Função que reinicia o jogo
 function reiniciarJogo() {
 for (let i = 0; i < tabuleiro.length; i++) {
 tabuleiro[i] = '';
