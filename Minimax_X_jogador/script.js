@@ -169,7 +169,6 @@ function exibirMensagemFimDoJogo() {
   }
 }
 
-
 function reiniciarJogo() {
   for (let i = 0; i < tabuleiro.length; i++) {
     tabuleiro[i] = '';
