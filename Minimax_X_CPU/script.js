@@ -142,10 +142,5 @@ function exibirPontuacao(pontuacao) {
   }
 }
 
-document.getElementById('board').addEventListener('click', function(event) {
-  const index = Array.from(event.target.parentNode.children).indexOf(event.target);
-  fazerMovimento(JOGADOR_O, index);
-});
-
 
 fazerMovimento(JOGADOR_X, 0);

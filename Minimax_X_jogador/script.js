@@ -8,8 +8,8 @@ let tabuleiro = ['', '', '', '', '', '', '', '', ''];
 
 let pontuacao = {
   vitorias: 0,
-  empates: 0,
-  derrotas: 0
+  empates: 0
+
 };
 
 
