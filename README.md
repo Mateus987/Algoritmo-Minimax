@@ -1,4 +1,4 @@
-# Jogo-da-Velha
+# Minimax
 
 Trabalho de inteligência artificial
 - prof º Favan
